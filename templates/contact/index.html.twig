@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello to our contact form! ✅</h1>
+
+        <div>
+            {{ form_start(con_form) }}
+            {{ form_widget(con_form) }}
+            {% for msg in app.session.flashBag.get('success') %}
+                <div class="alert alert-success">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+            {% for msg in app.session.flashBag.get('error') %}
+                <div class="alert alert-error">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+            {{ form_end(con_form) }}
+        </div>
+</div>
+{% endblock %}
